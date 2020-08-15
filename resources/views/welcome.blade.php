@@ -12,7 +12,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                /* background-color: #fff;
+                 */
+                background: linear-gradient(to right, #fc8b56, #fd5656);
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
