@@ -16,14 +16,14 @@ class App extends React.Component {
         return (
             <div className="ui centered grid">
                 <div className="twelve wide column">
-                    <div className="ui centered grid">
-                        <div className="seven wide column" style={{textAlign: 'center', position: 'relative', padding: '0'}}>
+                    <div className="ui mobile reversed stackable centered grid">
+                        <div className="seven wide computer sixteen wide mobile column" style={{textAlign: 'center', position: 'relative', padding: '0'}}>
                             <img className="ui middle aligned big image" src="/img/iphone11transparent.png"></img>
                             <div style={{position: 'absolute', width: '100%', fontSize: '24px', top: '40%'}} className="">
                                 <img src="" alt="" id="output" width="200"/>
                             </div>
                         </div>
-                        <div className="nine wide middle aligned column" style={{textAlign: 'left'}}>
+                        <div className="nine wide computer sixteen wide mobile middle aligned column">
                             <div className="title" style={{lineHeight: '100%'}}>
                                 Keep
                             </div>
