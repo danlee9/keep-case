@@ -9,7 +9,7 @@ class KeepCaseContent extends React.Component {
 
     render() {
         return (
-            <div className="ui centered grid main-section" style={{margin: 0}}>
+            <div className="ui centered grid main-section" style={{margin: 0}} id="content">
                 <div className="twelve wide column">
                     <div className="ui mobile reversed stackable centered grid">
                         <div className="seven wide computer sixteen wide mobile column" style={{textAlign: 'center', position: 'relative', padding: '0'}}>

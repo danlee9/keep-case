@@ -8,15 +8,18 @@ import "./App.css";
 import About from './About';
 import KeepCaseContent from './KeepCaseContent';
 import BuyKeepCase from './BuyKeepCase';
+import DontNavigation from './DotNavigation';
+import DotNavigation from "./DotNavigation";
 
 class App extends React.Component {
     
 
     render() {
         return (
-            <div>
-                <About />
+            <div className="App">
+                <DotNavigation />
                 <KeepCaseContent />
+                <About />
                 <BuyKeepCase />
             </div>
         );
