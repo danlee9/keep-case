@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 
 import './DotNavigation.css';
+import DotLink from './DotLink';
 
 class DotNavigation extends React.Component {
     
@@ -47,7 +48,7 @@ class DotNavigation extends React.Component {
                         >a</Link>
                     </li>
                 </ul> */}
-                <Link
+                {/* <Link
                     activeClass="active"
                     to="content"
                     smooth={true}
@@ -64,7 +65,13 @@ class DotNavigation extends React.Component {
                     to="buy-keep-case"
                     smooth={true}
                     duration= {500}
-                ></Link>
+                ></Link> */}
+                {/* <a href="#content"></a>
+                <a href="#about"></a>
+                <a href="#buy-keep-case"></a> */}
+                <DotLink to="content" />
+                <DotLink to="about" />
+                <DotLink to="buy-keep-case" />
             </div>
         );
     }
