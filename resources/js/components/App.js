@@ -5,14 +5,17 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Image } from 'semantic-ui-react'
 import "./App.css";
 
+import { addSections } from '../actions';
+
 import About from './About';
 import KeepCaseContent from './KeepCaseContent';
 import BuyKeepCase from './BuyKeepCase';
-import DontNavigation from './DotNavigation';
 import DotNavigation from "./DotNavigation";
 
 class App extends React.Component {
-    
+    componentDidMount() {
+        this.props.addSections();
+    }
 
     render() {
         return (
@@ -26,6 +29,10 @@ class App extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        sections: state.section.sections
+    };
+};
 
-
-export default App;
+export default connect(mapStateToProps, { addSections })(App);

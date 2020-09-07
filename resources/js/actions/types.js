@@ -1,0 +1,1 @@
+export const ADD_SECTIONS = 'ADD_SECTIONS';
