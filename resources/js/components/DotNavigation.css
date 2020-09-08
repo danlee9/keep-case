@@ -45,6 +45,10 @@
 	/* width: 10px; */
 }
 
-#dot-nav a.active, #dot-nav a:hover {
+#dot-nav a:hover {
 	background-color: steelblue;
+}
+
+#dot-nav a.active {
+	background-color: dodgerblue;
 }
