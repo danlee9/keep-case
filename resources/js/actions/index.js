@@ -1,6 +1,7 @@
 import {
     ADD_SECTIONS,
-    CLICK_NAVI_DOT
+    CLICK_NAVI_DOT,
+    ARROW_KEY_PRESS
 } from './types';
 
 // adds all main-section html element positions to state
@@ -31,5 +32,12 @@ export const clickNaviDot = (position, currentSection) => {
             position,
             currentSection
         }
+    }
+}
+
+export const arrowKeyPress = direction => {
+    return {
+        type: ARROW_KEY_PRESS,
+        payload: direction
     }
 }
