@@ -1,10 +1,20 @@
 import React from 'react';
+import Axios from 'axios';
 
 class KeepCaseContent extends React.Component {
     onChange = (event) => {
         console.log(event);
         var image = document.getElementById('output');
 	    image.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    onSubmit = e => {
+        let photo = document.getElementById('file').files[0];
+        let formData = new FormData();
+        formData.append("photo", photo);
+        Axios.post('/api/image', formData).then(res => {
+            console.log(res);
+        });
     }
 
     render() {
@@ -28,6 +38,9 @@ class KeepCaseContent extends React.Component {
                             <div style={{marginTop: '20px'}}>
                                 <input type="file" accept="image/*" name="image" id="file" onChange={this.onChange}/>
                                 <label htmlFor="file">choose a file</label>
+                            </div>
+                            <div>
+                                <button onClick={this.onSubmit}>Submit</button>
                             </div>
                         </div>
                     </div>

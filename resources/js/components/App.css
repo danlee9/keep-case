@@ -102,14 +102,14 @@ body {
 .swiper-pagination-bullet {
     width: 15px;
     height: 15px;
-    border: 3px solid black;
-    border-radius: 15px 15px 15px 15px;
+    /* border: 3px solid black;
+    border-radius: 15px 15px 15px 15px; */
 }
 
-.swiper-pagination-bullet-active {
+/* .swiper-pagination-bullet-active {
     opacity: 1;
     border: 3px solid rgba(0,0,0,0.2);
-}
+} */
 
 /* .swiper-button-up,
 .swiper-button-down {

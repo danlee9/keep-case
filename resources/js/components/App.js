@@ -135,57 +135,6 @@ class App extends React.Component {
         console.log(e);
     }
 
-    // mouseScroll = e => {
-    //     // console.log(e);
-    //     // e.preventDefault();
-    //     if (this.state.scrolling) {
-    //         console.log('state scrolling');
-    //         return;
-    //     }
-    //     const { sections, position } = this.props;        
-        
-    //     let newScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    //     if (newScrollTop > this.state.offset) {
-    //         console.log('scrolldown')
-    //         let direction = 'ArrowDown';
-    //         if (position != sections.length - 1) {
-    //             this.setState({
-    //                 scrolling: true,
-    //                 scrollDirection: direction
-    //             });
-    //             let p = smoothScroll(sections[position + 1].offset, direction)
-    //             p.then(() => {
-    //                 this.setState({
-    //                     scrolling: false,
-    //                     offset: sections[position + 1].offset
-    //                 });
-    //                 this.props.arrowKeyPress(this.state.scrollDirection);
-    //             })
-    //         }
-            
-    //         // this.props.arrowKeyPress(direction);
-    //     } else {
-    //         console.log('scrollup');
-    //         let direction = 'ArrowUp';
-    //         if (position != 0) {
-    //             this.setState({
-    //                 scrolling: true,
-    //                 scrollingDirection: direction
-    //             });
-    //             let p = smoothScroll(sections[position - 1].offset, direction)
-    //             p.then(() => {
-    //                 this.setState({
-    //                     scrolling: false,
-    //                     offset: sections[position - 1].offset
-    //                 });
-    //                 this.props.arrowKeyPress(this.state.scrollDirection);
-    //             })
-    //         }
-            
-    //         // this.props.arrowKeyPress(direction);
-    //     }
-    // }
-
     render() {
         return (
             <div className="App">
