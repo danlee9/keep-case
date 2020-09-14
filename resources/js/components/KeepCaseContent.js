@@ -9,10 +9,10 @@ class KeepCaseContent extends React.Component {
 
     render() {
         return (
-            <div className="ui centered grid main-section" style={{margin: 0}} id="content">
+            <div className="ui centered grid main-section keep-case-content" style={{margin: 0}} id="content">
                 <div className="twelve wide column">
                     <div className="ui mobile reversed stackable centered grid">
-                        <div className="seven wide computer sixteen wide mobile column" style={{textAlign: 'center', position: 'relative', padding: '0'}}>
+                        <div className="six wide computer sixteen wide mobile column" style={{textAlign: 'center', position: 'relative', padding: '0'}}>
                             <img className="ui middle aligned big image" src="/img/iphone11transparent.png"></img>
                             <div style={{position: 'absolute', width: '100%', fontSize: '24px', top: '40%'}} className="">
                                 <img src="" alt="" id="output" width="200"/>

@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 import { Router, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Image } from 'semantic-ui-react'
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Mousewheel, EffectFade, Navigation, Pagination } from 'swiper';
+import 'swiper/swiper-bundle.css';
 import "./App.css";
+
+SwiperCore.use([Mousewheel, EffectFade, Navigation, Pagination]);
 
 import { addSections, arrowKeyPress } from '../actions';
 
@@ -69,17 +74,19 @@ class App extends React.Component {
         this.props.addSections();
     }
 
-    componentWillMount() {
-        window.addEventListener('keydown', this.arrowKeyPress);
-        window.addEventListener('wheel', this.wheelScroll, {passive: false});
-        // window.addEventListener('scroll', this.mouseScroll);
-    }
+    // componentWillMount() {
+    //     window.addEventListener('keydown', this.arrowKeyPress);
+    //     window.addEventListener('wheel', this.wheelScroll, {passive: false});
+    //     window.addEventListener('touchmove', this.touchMoveHandler);
+    //     // window.addEventListener('scroll', this.mouseScroll);
+    // }
 
-    componentWillUnmount() {
-        window.removeEventListener('keydown', this.arrowKeyPress);
-        window.removeEventListener('wheel', this.wheelScroll);
-        // window.removeEventListener('scroll', this.mouseScroll);
-    }
+    // componentWillUnmount() {
+    //     window.removeEventListener('keydown', this.arrowKeyPress);
+    //     window.removeEventListener('wheel', this.wheelScroll);
+    //     window.removeEventListener('touchmove', this.touchMoveHandler);
+    //     // window.removeEventListener('scroll', this.mouseScroll);
+    // }
 
     scrollSection = direction => {
         const { sections, position } = this.props;
@@ -114,22 +121,6 @@ class App extends React.Component {
             direction = 'ArrowUp';
         }
         this.scrollSection(direction);
-        // if (direction == 'ArrowUp') {
-        //     if (position != 0) {
-        //         scroll({
-        //             top: sections[position - 1].offset,
-        //             behavior: 'smooth'
-        //         });
-        //     }
-        // } else {
-        //     if (position != sections.length - 1) {
-        //         scroll({
-        //             top: sections[position + 1].offset,
-        //             behavior: 'smooth'
-        //         });
-        //     }
-        // }
-        // this.props.arrowKeyPress(direction);
     }
 
     arrowKeyPress = e => {
@@ -137,24 +128,11 @@ class App extends React.Component {
             e.preventDefault();
             const direction = e.key;
             this.scrollSection(direction);
-            // const { sections, position } = this.props;
-            // if (direction == 'ArrowUp') {
-            //     if (position != 0) {
-            //         scroll({
-            //             top: sections[position - 1].offset,
-            //             behavior: 'smooth'
-            //         });
-            //     }
-            // } else {
-            //     if (position != sections.length - 1) {
-            //         scroll({
-            //             top: sections[position + 1].offset,
-            //             behavior: 'smooth'
-            //         });
-            //     }
-            // }
-            // this.props.arrowKeyPress(direction);
         }
+    }
+
+    touchMoveHandler = e => {
+        console.log(e);
     }
 
     // mouseScroll = e => {
@@ -211,10 +189,32 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <DotNavigation />
+                {/* <DotNavigation />
                 <KeepCaseContent />
                 <About />
-                <BuyKeepCase />
+                <BuyKeepCase /> */}
+                <Swiper
+                    direction={'vertical'}
+                    mousewheel={true}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    effect={'slide'}
+                    pagination={{ clickable: true }}
+                >
+                    <SwiperSlide>
+                        <KeepCaseContent />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <About />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <BuyKeepCase />
+                    </SwiperSlide>
+                    {/* <SwiperSlide><div style={{height: '100vh', backgroundColor: 'red'}}>Slide 1</div></SwiperSlide>
+                    <SwiperSlide><div style={{height: '100vh', backgroundColor: 'yellow'}}>Slide 2</div></SwiperSlide>
+                    <SwiperSlide><div style={{height: '100vh', backgroundColor: 'green'}}>Slide 3</div></SwiperSlide>
+                    <SwiperSlide><div style={{height: '100vh', backgroundColor: 'blue'}}>Slide 4</div></SwiperSlide> */}
+                </Swiper>
             </div>
         );
     }
