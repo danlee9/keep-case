@@ -1,66 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Image } from 'semantic-ui-react'
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Mousewheel, EffectFade, Navigation, Pagination } from 'swiper';
-import 'swiper/swiper-bundle.css';
+
+import KeepCaseSlides from './KeepCaseSlides';
+
 import "./App.css";
 
-SwiperCore.use([Mousewheel, EffectFade, Navigation, Pagination]);
-
 import { addSections, arrowKeyPress } from '../actions';
-
-import About from './About';
-import KeepCaseContent from './KeepCaseContent';
-import BuyKeepCase from './BuyKeepCase';
-import DotNavigation from "./DotNavigation";
-
-function smoothScroll(offset, direction) {
-    console.log('offset')
-    window.scrollTo({
-        top: offset,
-        behavior: 'smooth'
-    });
-    
-    return new Promise((resolve, reject) => {
-        const failed = setTimeout(() => {
-            console.log('rejected');
-            reject();
-        }, 2000);
-  
-        const scrollHandler = () => {
-            console.log(offset);
-            console.log(window.pageYOffset);
-            if (direction === 'ArrowDown') {
-                if (window.pageYOffset >= offset) {
-                    window.removeEventListener("scroll", scrollHandler);
-                    clearTimeout(failed);
-                    console.log('resolved while scrolling down')
-                    resolve();
-                }
-            } else {
-                if (window.pageYOffset <= offset) {
-                    window.removeEventListener("scroll", scrollHandler);
-                    clearTimeout(failed);
-                    console.log('resolved while scrolling up')
-                    resolve();
-                }
-            }
-            
-        };
-
-        if (Math.round(window.pageYOffset) === offset) {
-            clearTimeout(failed);
-            console.log('resolved without adding event listener')
-            resolve();
-        } else {
-            console.log('add scroll listener')
-            window.addEventListener("scroll", scrollHandler);
-        }
-    });
-}
 
 class App extends React.Component {
     state = {
@@ -142,7 +90,7 @@ class App extends React.Component {
                 <KeepCaseContent />
                 <About />
                 <BuyKeepCase /> */}
-                <Swiper
+                {/* <Swiper
                     direction={'vertical'}
                     mousewheel={true}
                     spaceBetween={0}
@@ -159,11 +107,13 @@ class App extends React.Component {
                     <SwiperSlide>
                         <BuyKeepCase />
                     </SwiperSlide>
-                    {/* <SwiperSlide><div style={{height: '100vh', backgroundColor: 'red'}}>Slide 1</div></SwiperSlide>
-                    <SwiperSlide><div style={{height: '100vh', backgroundColor: 'yellow'}}>Slide 2</div></SwiperSlide>
-                    <SwiperSlide><div style={{height: '100vh', backgroundColor: 'green'}}>Slide 3</div></SwiperSlide>
-                    <SwiperSlide><div style={{height: '100vh', backgroundColor: 'blue'}}>Slide 4</div></SwiperSlide> */}
-                </Swiper>
+                </Swiper> */}
+                <Router>
+                    <Switch>
+                        <Route path="/" exact component={KeepCaseSlides} />
+                        <Route path="/:custom" exact component={KeepCaseSlides} />
+                    </Switch>
+                </Router>
             </div>
         );
     }
@@ -185,3 +135,48 @@ export default connect(mapStateToProps, { addSections, arrowKeyPress })(App);
 //       });
 //     });
 //   }
+
+// function smoothScroll(offset, direction) {
+//     console.log('offset')
+//     window.scrollTo({
+//         top: offset,
+//         behavior: 'smooth'
+//     });
+    
+//     return new Promise((resolve, reject) => {
+//         const failed = setTimeout(() => {
+//             console.log('rejected');
+//             reject();
+//         }, 2000);
+  
+//         const scrollHandler = () => {
+//             console.log(offset);
+//             console.log(window.pageYOffset);
+//             if (direction === 'ArrowDown') {
+//                 if (window.pageYOffset >= offset) {
+//                     window.removeEventListener("scroll", scrollHandler);
+//                     clearTimeout(failed);
+//                     console.log('resolved while scrolling down')
+//                     resolve();
+//                 }
+//             } else {
+//                 if (window.pageYOffset <= offset) {
+//                     window.removeEventListener("scroll", scrollHandler);
+//                     clearTimeout(failed);
+//                     console.log('resolved while scrolling up')
+//                     resolve();
+//                 }
+//             }
+            
+//         };
+
+//         if (Math.round(window.pageYOffset) === offset) {
+//             clearTimeout(failed);
+//             console.log('resolved without adding event listener')
+//             resolve();
+//         } else {
+//             console.log('add scroll listener')
+//             window.addEventListener("scroll", scrollHandler);
+//         }
+//     });
+// }

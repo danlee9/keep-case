@@ -18,4 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('image/{path}', 'ImageController@path');
+
 Route::post('image', 'ImageController@store');

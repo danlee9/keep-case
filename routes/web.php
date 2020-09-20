@@ -20,3 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('keepcase');
 });
+
+Route::get('/uploadfile','ImageController@index');
+Route::post('/uploadfile','ImageController@showUploadFile');
+
+Route::get('/{custom}', function() {
+    return view('keepcase');
+});
+
