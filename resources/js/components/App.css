@@ -85,10 +85,12 @@ body {
 
 .about {
     background-color: skyblue;
+    text-align: center;
 }
 
 .buy-keep-case{
     background-color: mediumpurple;
+    text-align: center;
 }
 
 .swiper-container {
