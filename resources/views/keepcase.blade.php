@@ -52,6 +52,7 @@
     </head>
     <body>
         <div id="root"></div>
+        <div id="link-modal"></div>
         <script src="/js/index.js"></script>
     </body>
 </html>

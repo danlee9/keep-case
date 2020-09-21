@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Image } from 'semantic-ui-react'
 
 import KeepCaseSlides from './KeepCaseSlides';
+import LinkModal from './LinkModal';
 
 import "./App.css";
 
@@ -114,6 +115,7 @@ class App extends React.Component {
                         <Route path="/:custom" exact component={KeepCaseSlides} />
                     </Switch>
                 </Router>
+                {/* <LinkModal /> */}
             </div>
         );
     }

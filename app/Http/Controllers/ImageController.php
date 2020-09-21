@@ -18,11 +18,11 @@ class ImageController extends Controller
     {
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            if ($file->isValid()) {
-                $validated = $request->validate([
-                    'image' => 'mimes:jpeg,png|max:1024'
-                ]);
-            }
+            // if ($file->isValid()) {
+            //     $validated = $request->validate([
+            //         'image' => 'mimes:jpeg,png|max:1024'
+            //     ]);
+            // }
             
             $check = true;
             while ($check) {
@@ -33,7 +33,7 @@ class ImageController extends Controller
                     // $extension = $request->image->extension();
                     $extension = $file->getClientOriginalExtension();
                     $request->image->storeAs('/public', "$url.$extension");
-                    Image::create([
+                    $image = Image::create([
                         'path' => $url,
                         'original_name' => $originalName,
                         'extension' => $extension
@@ -42,7 +42,7 @@ class ImageController extends Controller
                 }
             }
                         
-            return "STORED!!!!";
+            return json_encode($image);
         }
     }
 

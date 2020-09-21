@@ -5,7 +5,9 @@ import './KeepCaseContent.css';
 
 class KeepCaseContent extends React.Component {
     state = {
-        fullpath: null
+        fullpath: null,
+        glowing: false,
+        imageCleared: false
     }
 
     componentDidMount() {
@@ -23,7 +25,21 @@ class KeepCaseContent extends React.Component {
     onChange = (event) => {
         console.log(event);
         var image = document.getElementById('output');
-	    image.src = URL.createObjectURL(event.target.files[0]);
+        console.log('hello');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        this.setState({
+            glowing: true,
+            imageCleared: false
+        });
+    }
+
+    undo = () => {
+        var image = document.getElementById('output');
+        image.src = null;
+        this.setState({
+            glowing: false,
+            imageCleared: true
+        });
     }
 
     onSubmit = async e => {
@@ -33,6 +49,7 @@ class KeepCaseContent extends React.Component {
         formData.append("image", image);
         Axios.post('/api/image', formData).then(res => {
             console.log(res);
+            alert(window.location.host + '/' + res.data.path);
         });
     }   
 
@@ -61,8 +78,8 @@ class KeepCaseContent extends React.Component {
                                 <div style={{position: 'absolute', width: '125px', height: '125px', bottom: '2px', left: '50%', marginLeft: '-62.5px', borderSize: '2px', backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: '100%', boxShadow: 'inset 0 0 10px #fff, inset 4px 0 16px #f0f, inset -4px 0 16px #0ff, inset 4px 0 60px #f0f, inset -4px 0 60px #0ff'}}></div>
                             </div> */}
                             <div className="upload-container">
-                                <img src={this.state.fullpath} alt="" id="output" style={{borderColor: '#9ecaed', borderSize: '2px', boxShadow: '0 0 10px green'}} className="upload-container-content"/>
-                                <div className="upload-container-content inset-box-shadow" style={{borderSize: '2px'}}></div>
+                                <img src={this.state.fullpath} alt="" id="output" className={`upload-container-content image-content ${this.state.imageCleared ? 'hide-image-error' : ''}`}/>
+                                <div className={`upload-container-content initial-box-shadow ${this.state.glowing ? 'inset-box-shadow' : ''}`} style={{borderSize: '2px'}}></div>
                             </div>
                         </div>
                         <div className="nine wide computer sixteen wide mobile middle aligned column" style={{boxSizing: 'border-box'}}>
@@ -74,10 +91,15 @@ class KeepCaseContent extends React.Component {
                             </div>
                             <div style={{marginTop: '20px'}}>
                                 <input type="file" accept="image/*" name="image" id="file" onChange={this.onChange}/>
-                                <label htmlFor="file">choose a file</label>
+                                <label htmlFor="file">Choose An Image</label>
                             </div>
                             <div>
-                                <button onClick={this.onSubmit}>Submit</button>
+                                {/* <button onClick={this.onSubmit}>Submit</button> */}
+                                <div className="ui buttons">
+                                    <button className="ui button" onClick={this.undo}>Undo</button>
+                                    <div className="or"></div>
+                                    <button className="ui blue button" onClick={this.onSubmit}>Save</button>
+                                </div>
                             </div>
                         </div>
                     </div>
