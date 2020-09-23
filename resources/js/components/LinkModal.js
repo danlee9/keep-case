@@ -9,7 +9,7 @@ class LinkModal extends React.Component {
     render() {
         return ReactDOM.createPortal(
             <Transition visible={true} animation='scale' duration={400}>
-                <div class="ui basic modal">
+                <div class="ui basic modal" style={{position: 'fixed', height: '100vh', width: '100%', opacity: 0.2, top: 0, zIndex: '999'}}>
                     <div class="ui icon header">
                         <i class="archive icon"></i>
                         Archive Old Messages
@@ -35,3 +35,5 @@ class LinkModal extends React.Component {
 }
 
 export default LinkModal;
+
+// <div style={{position: 'fixed', height: '100vh', width: '100%', backgroundColor: 'dodgerblue', opacity: 0.2, top: 0, zIndex: '999'}}>HELLO</div>

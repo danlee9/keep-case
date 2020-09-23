@@ -115,7 +115,7 @@ class App extends React.Component {
                         <Route path="/:custom" exact component={KeepCaseSlides} />
                     </Switch>
                 </Router>
-                {/* <LinkModal /> */}
+                <LinkModal />
             </div>
         );
     }
