@@ -52,18 +52,18 @@ class KeepCaseContent extends React.Component {
     }
 
     onSubmit = async e => {
-        // let image = document.getElementById('file').files[0];
-        // console.log(image);
-        // let formData = new FormData();
-        // formData.append("image", image);
-        // this.props.openLinkModal();
-        // console.log('saving');
-        // this.props.saveImage(formData);
-        console.log('domtoimage')
-        domtoimage.toBlob(document.getElementById('phone'))
-            .then(function(blob) {
-                saveAs(blob, 'my-node.png');
-            });
+        let image = document.getElementById('file').files[0];
+        console.log(image);
+        let formData = new FormData();
+        formData.append("image", image);
+        this.props.openLinkModal();
+        console.log('saving');
+        this.props.saveImage(formData);
+        // console.log('domtoimage')
+        // domtoimage.toBlob(document.getElementById('phone'))
+        //     .then(function(blob) {
+        //         saveAs(blob, 'my-node.png');
+        //     });
     }
 
     closeLinkModal = () => {
