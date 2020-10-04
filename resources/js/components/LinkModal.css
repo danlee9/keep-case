@@ -1,0 +1,15 @@
+.ui.basic.modal.modal-overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    opacity: 0.8;
+    z-index: 999;
+    text-align: center;
+    background-color: black;
+    color: white;
+    top: 0;
+}
+
+.ui.text.loader.hide {
+    visibility: hidden;
+}

@@ -5,7 +5,7 @@ const About = () => {
     return (
         <div className="main-section about" id="about">
             <div className="main-headline">About Keep Case</div>
-            <iframe id="iframe" src="https://www.youtube.com/embed/lTRiuFIWV54" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="iframe" src="https://www.youtube.com/embed/lTRiuFIWV54" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             <div className="ipsum-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nemo quam delectus omnis, nostrum quod, esse dolore recusandae aspernatur sint nesciunt nobis laborum!</div>
             <div className="random-text">Random placeholder logos</div>
             <div className="logos">

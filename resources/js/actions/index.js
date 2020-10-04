@@ -1,7 +1,7 @@
 import {
     ADD_SECTIONS,
     CLICK_NAVI_DOT,
-    ARROW_KEY_PRESS
+    ARROW_KEY_PRESS, SAVE_IMAGE, CLOSE_LINK_MODAL, OPEN_LINK_MODAL
 } from './types';
 
 // adds all main-section html element positions to state
@@ -40,4 +40,23 @@ export const arrowKeyPress = direction => {
         type: ARROW_KEY_PRESS,
         payload: direction
     }
+}
+
+export const openLinkModal = () => {
+    return {
+        type: OPEN_LINK_MODAL
+    };
+}
+
+export const saveImage = formData => async dispatch => {
+    const res = await axios.post('/api/image', formData);
+    console.log(res.data);
+    dispatch({type: SAVE_IMAGE, payload: res.data});
+    // dispatch({type: SAVE_IMAGE});
+}
+
+export const closeLinkModal = () => {
+    return {
+        type: CLOSE_LINK_MODAL
+    };
 }
