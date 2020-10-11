@@ -1,0 +1,39 @@
+.buy-keep-case{
+    background-color: mediumpurple;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.buy-container {
+    background-color: #6cceec;
+    /* background-image: linear-gradient(#6cceec 12%,#f37074); */
+    box-shadow: 0 0 10px #f37074;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+}
+
+.placeholder-text {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.placeholder-container {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    box-shadow: 0 0 10px black;
+}
+
+@media only screen and (max-width: 420px) {
+    .placeholder-container {
+        width: 80%;
+    }
+}

@@ -4,19 +4,24 @@ import { connect } from "react-redux";
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 
-import './KeepCaseContent.css';
+import './styles/KeepCaseContent.css';
 
 import { openLinkModal, saveImage } from "../actions";
 
+import PhoneCustomize from './PhoneCustomize';
+
 class KeepCaseContent extends React.Component {
-    state = {
-        fullpath: null,
-        glowing: false,
-        imageCleared: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            fullpath: null,
+            glowing: false,
+            imageCleared: false
+        }
+        this.wrapperRef = React.createRef();
     }
 
     componentDidMount() {
-        console.log(this.props.custom);
         if (this.props.custom) {
             Axios.get(`/api/image/${this.props.custom}`).then(res => {
                 const data = res.data;
@@ -52,22 +57,28 @@ class KeepCaseContent extends React.Component {
     }
 
     onSubmit = async e => {
-        let image = document.getElementById('file').files[0];
-        console.log(image);
-        let formData = new FormData();
-        formData.append("image", image);
-        this.props.openLinkModal();
-        console.log('saving');
-        this.props.saveImage(formData);
-        // console.log('domtoimage')
-        // domtoimage.toBlob(document.getElementById('phone'))
-        //     .then(function(blob) {
-        //         saveAs(blob, 'my-node.png');
-        //     });
+        // let image = document.getElementById('file').files[0];
+        // console.log(image);
+        // let formData = new FormData();
+        // formData.append("image", image);
+        // this.props.openLinkModal();
+        // console.log('saving');
+        // this.props.saveImage(formData);
+        console.log('domtoimage')
+        domtoimage.toBlob(document.getElementById('phone'))
+            .then(function(blob) {
+                saveAs(blob, 'my-node.png');
+            });
     }
 
     closeLinkModal = () => {
         this.props.closeLinkModal();
+    }
+
+    handleCustomize = () => {
+        console.log('customize');
+        const wrapper = this.wrapperRef.current; // this is ref is being forwarded to PhoneCustomize
+        wrapper.classList.toggle('is-open');
     }
 
     render() {
@@ -118,9 +129,11 @@ class KeepCaseContent extends React.Component {
                                     <button className="ui blue button" onClick={this.onSubmit}>Save</button>
                                 </div>
                             </div>
+                            <div><button onClick={this.handleCustomize}>Test Button</button></div>
                         </div>
                     </div>
                 </div>
+                <PhoneCustomize ref={this.wrapperRef}/>
             </div>
         );
     }

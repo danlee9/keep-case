@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from "react-redux";
 import { Transition, Popup } from "semantic-ui-react";
 
-import './LinkModal.css';
+import './styles/LinkModal.css';
 
 import { closeLinkModal } from "../actions";
 

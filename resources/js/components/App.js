@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Image } from 'semantic-ui-react'
 
+import Header from './Header';
 import KeepCaseSlides from './KeepCaseSlides';
 import LinkModal from './LinkModal';
 
-import "./App.css";
+import "./styles/App.css";
 
 import { addSections, arrowKeyPress } from '../actions';
 
@@ -109,6 +110,7 @@ class App extends React.Component {
                         <BuyKeepCase />
                     </SwiperSlide>
                 </Swiper> */}
+                <Header />
                 <Router>
                     <Switch>
                         <Route path="/" exact component={KeepCaseSlides} />

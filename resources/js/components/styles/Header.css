@@ -1,0 +1,19 @@
+.header {
+    /* height: 50px; */
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    z-index: 99;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.keep-icon {
+    color: #636b6f;
+    background: white;
+    padding: 5px;
+    border-radius: 50%;
+}

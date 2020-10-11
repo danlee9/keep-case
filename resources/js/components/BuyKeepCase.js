@@ -1,5 +1,5 @@
 import React from 'react';
-import './BuyKeepCase.css';
+import './styles/BuyKeepCase.css';
 
 const BuyKeepCase = () => {
     return (

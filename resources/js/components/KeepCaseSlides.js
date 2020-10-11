@@ -12,7 +12,6 @@ SwiperCore.use([Mousewheel, EffectFade, Navigation, Pagination]);
 
 const KeepCaseSlides = props => {
     const { custom } = props.match.params;
-    console.log(custom);
     return (
         <Swiper
             direction={'vertical'}

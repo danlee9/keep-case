@@ -31,6 +31,7 @@
     "dependencies": {
         "dom-to-image": "^2.6.0",
         "file-saver": "^2.0.2",
+        "node-sass": "^4.14.1",
         "react-redux": "^7.2.1",
         "react-router-dom": "^5.2.0",
         "react-router-transition": "^2.0.0",

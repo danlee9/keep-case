@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 
-import './DotNavigation.css';
+import './styles/DotNavigation.css';
 import DotLink from './DotLink';
 
 class DotNavigation extends React.Component {
