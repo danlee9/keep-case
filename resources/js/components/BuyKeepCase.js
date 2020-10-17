@@ -3,7 +3,7 @@ import './styles/BuyKeepCase.css';
 
 const BuyKeepCase = () => {
     return (
-        <div className="main-section buy-keep-case" id="buy-keep-case">
+        <div className="main-section buy-keep-case" id="buy-keep-case" style={{paddingTop: '80px'}}>
             {/* <h1>Buy Keep Case</h1> */}
             {/* <div className="buy-container">
                 <div>Buy Keep Case</div>

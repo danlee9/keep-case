@@ -43,7 +43,7 @@ body {
     margin-bottom: 30px;
 }
 
-[type="file"] {
+/* [type="file"] {
     height: 0;
     overflow: hidden;
     width: 0;
@@ -70,7 +70,7 @@ body {
 
 [type="file"] + label:hover {
     background-color: #d3460d;
-}
+} */
 
 .main-section {
     height: 100vh;

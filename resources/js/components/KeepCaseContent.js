@@ -16,7 +16,8 @@ class KeepCaseContent extends React.Component {
         this.state = {
             fullpath: null,
             glowing: false,
-            imageCleared: false
+            imageCleared: false,
+            customizeOpen: false
         }
         this.wrapperRef = React.createRef();
     }
@@ -43,7 +44,8 @@ class KeepCaseContent extends React.Component {
         this.setState({
             glowing: true,
             imageCleared: false,
-            fullpath: URL.createObjectURL(event.target.files[0])
+            fullpath: URL.createObjectURL(event.target.files[0]),
+            customizeOpen: true
         });
     }
 
@@ -79,12 +81,13 @@ class KeepCaseContent extends React.Component {
         console.log('customize');
         const wrapper = this.wrapperRef.current; // this is ref is being forwarded to PhoneCustomize
         wrapper.classList.toggle('is-open');
+        // this.setState({customizeOpen: true})
     }
 
     render() {
         return (
             <div className="ui centered grid main-section keep-case-content" style={{margin: 0}} id="content">
-                <div className="twelve wide column">
+                <div className="twelve wide column" style={{paddingTop: '40px'}}>
                     <div className="ui mobile reversed stackable centered grid">
                         <div className="six wide computer sixteen wide mobile column" id="phone" style={{textAlign: 'center', position: 'relative', boxSizing: 'border-box'}}>
                             <img className="ui middle aligned big image" src="/img/iphone11transparent.png" id="iphone"></img>
@@ -117,23 +120,22 @@ class KeepCaseContent extends React.Component {
                             <div className="title" style={{lineHeight: '100%'}}>
                                 Case
                             </div>
-                            <div style={{marginTop: '20px'}}>
+                            {/* <div style={{marginTop: '20px'}}>
                                 <input type="file" accept="image/*" name="image" id="file" onChange={this.onChange}/>
                                 <label htmlFor="file">Choose An Image</label>
                             </div>
                             <div>
-                                {/* <button onClick={this.onSubmit}>Submit</button> */}
                                 <div className="ui buttons">
                                     <button className="ui button" onClick={this.undo}>Undo</button>
                                     <div className="or"></div>
                                     <button className="ui blue button" onClick={this.onSubmit}>Save</button>
                                 </div>
-                            </div>
-                            <div><button onClick={this.handleCustomize}>Test Button</button></div>
+                            </div> */}
+                            <div className="test-button-container"><button className="test-button" onClick={this.handleCustomize}>customize</button></div>
                         </div>
                     </div>
                 </div>
-                <PhoneCustomize ref={this.wrapperRef}/>
+                <PhoneCustomize ref={this.wrapperRef} upload={this.onChange} save={this.onSubmit} open={this.state.customizeOpen}/>
             </div>
         );
     }
